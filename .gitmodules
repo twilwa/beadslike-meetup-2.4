@@ -1,0 +1,15 @@
+[submodule "docs/references/beads"]
+	path = docs/references/beads
+	url = https://github.com/steveyegge/beads
+[submodule "docs/references/ergo"]
+	path = docs/references/ergo
+	url = https://github.com/sandover/ergo.git
+[submodule "docs/references/niwa"]
+	path = docs/references/niwa
+	url = https://github.com/secemp9/niwa.git
+[submodule "docs/references/jari"]
+	path = docs/references/jari
+	url = https://github.com/secemp9/jari.git
+[submodule "docs/references/Backlog.md"]
+	path = docs/references/Backlog.md
+	url = https://github.com/MrLesk/Backlog.md.git
