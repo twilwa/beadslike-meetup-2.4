@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "1f90fb97adc2",
+  "session_id": "ses_38cbf3bd8ffeUFtdqjvafDqpcb",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-19T02:29:56.542556Z",
+  "branch": "main",
+  "checkpoints_count": 0,
+  "files_touched": [
+    ".sisyphus/evidence/task-1-build.txt",
+    ".sisyphus/evidence/task-1-final-summary.txt",
+    ".sisyphus/evidence/task-7-store.txt",
+    "tl/bd",
+    "tl/cmd/bd/main.go",
+    "tl/cmd/tl/main.go",
+    "tl/go.mod",
+    "tl/go.sum",
+    "tl/internal/tl/cli.go",
+    "tl/internal/tl/events_test.go",
+    "tl/internal/tl/store.go",
+    "tl/internal/tl/store_test.go",
+    "tl/tl"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "c0f34131e312",
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-19T02:29:56.476814Z",
+    "agent_lines": 1828,
+    "human_added": 8688,
+    "human_modified": 13,
+    "human_removed": 0,
+    "total_committed": 10529,
+    "agent_percentage": 17.36157279893627
+  }
+}
