@@ -1,0 +1,62 @@
+# Task 5: File Lock Manager - Evidence
+
+## Files Created
+
+### 1. /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/lock.go
+- Package: tl
+- Exports: withLock(lockPath string, fn func() error) error
+- Implementation:
+  * Opens/creates lock file with O_CREATE|O_WRONLY|O_TRUNC, mode 0644
+  * Calls unix.Flock(fd, unix.LOCK_EX|unix.LOCK_NB) for non-blocking exclusive lock
+  * Returns ErrLockBusy on EWOULDBLOCK or EAGAIN
+  * Defers unix.Flock(fd, unix.LOCK_UN) to release lock
+  * Executes fn() under lock and returns its error
+- Uses golang.org/x/sys/unix (v0.41.0) instead of deprecated syscall
+- Reuses ErrLockBusy from model.go (same package)
+
+### 2. /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/lock_test.go
+- Package: tl
+- Tests:
+  * TestLockAcquireRelease: Verifies lock acquisition, execution, and release
+  * TestLockContention: Verifies concurrent lock attempts fail with ErrLockBusy
+  * TestLockCreatesFile: Verifies lock file is created if missing
+  * TestLockFunctionError: Verifies fn() errors are propagated
+- Uses testify/assert for assertions
+- Uses t.TempDir() for temporary files
+
+## Test Results
+
+$ go test ./internal/tl/ -run TestLock -count=1 -v
+=== RUN   TestLockAcquireRelease
+--- PASS: TestLockAcquireRelease (0.00s)
+=== RUN   TestLockContention
+--- PASS: TestLockContention (0.10s)
+=== RUN   TestLockCreatesFile
+--- PASS: TestLockCreatesFile (0.00s)
+=== RUN   TestLockFunctionError
+--- PASS: TestLockFunctionError (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.110s
+
+## Vet Results
+
+$ go vet ./...
+(no errors)
+
+## Verification Checklist
+
+✓ lock.go created with correct package and imports
+✓ withLock function signature matches spec
+✓ Non-blocking lock with LOCK_EX|LOCK_NB
+✓ ErrLockBusy returned on EWOULDBLOCK/EAGAIN
+✓ Lock released via defer LOCK_UN
+✓ File created with O_CREATE|O_WRONLY|O_TRUNC, mode 0644
+✓ lock_test.go created with 4 comprehensive tests
+✓ All tests pass
+✓ go vet passes
+✓ Uses golang.org/x/sys/unix (not deprecated syscall)
+✓ Reuses ErrLockBusy from model.go (no redefinition)
+
+## Dependencies Added
+
+golang.org/x/sys@v0.41.0 added to go.mod via: go get golang.org/x/sys@v0.41.0

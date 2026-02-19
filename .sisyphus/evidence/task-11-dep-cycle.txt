@@ -1,0 +1,36 @@
+=== RUN   TestDepAddRejectsCycle
+--- PASS: TestDepAddRejectsCycle (0.03s)
+=== RUN   TestDepAddAcceptsUnknownType
+--- PASS: TestDepAddAcceptsUnknownType (0.03s)
+=== RUN   TestDepAddRejectsSelfDependency
+--- PASS: TestDepAddRejectsSelfDependency (0.01s)
+=== RUN   TestDepRemoveWorks
+--- PASS: TestDepRemoveWorks (0.04s)
+=== RUN   TestDepAddCmdTypeFlagDefault
+--- PASS: TestDepAddCmdTypeFlagDefault (0.00s)
+=== RUN   TestDepRemoveMissingDependencyReturnsNotFound
+--- PASS: TestDepRemoveMissingDependencyReturnsNotFound (0.02s)
+=== RUN   TestHasCycle
+--- PASS: TestHasCycle (0.00s)
+=== RUN   TestHasCycleNoCycle
+--- PASS: TestHasCycleNoCycle (0.00s)
+=== RUN   TestDependencyTypeAffectsReadyWork
+=== RUN   TestDependencyTypeAffectsReadyWork/blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/parent-child
+=== RUN   TestDependencyTypeAffectsReadyWork/conditional-blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/waits-for
+=== RUN   TestDependencyTypeAffectsReadyWork/related
+=== RUN   TestDependencyTypeAffectsReadyWork/discovered-from
+--- PASS: TestDependencyTypeAffectsReadyWork (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/parent-child (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/conditional-blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/waits-for (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/related (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/discovered-from (0.00s)
+=== RUN   TestDependencyTypeUnknownAccepted
+--- PASS: TestDependencyTypeUnknownAccepted (0.00s)
+=== RUN   TestDepAddReplay
+--- PASS: TestDepAddReplay (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.154s

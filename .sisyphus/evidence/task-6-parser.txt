@@ -1,0 +1,125 @@
+TASK 6: Beads JSONL Parser Implementation
+==========================================
+
+DELIVERABLES COMPLETED:
+✓ beads_parser.go - ParseBeadsJSONL function with full implementation
+✓ beads_parser_test.go - Comprehensive test suite (11 tests)
+✓ testdata/beads_sample.jsonl - 5 representative beads issues fixture
+✓ All tests passing
+✓ go vet clean
+
+FILES CREATED:
+- /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/beads_parser.go (6.8K)
+- /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/beads_parser_test.go (8.8K)
+- /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/testdata/beads_sample.jsonl (1.3K)
+
+IMPLEMENTATION DETAILS:
+
+1. ParseBeadsJSONL Function:
+   - Reads JSONL line-by-line using bufio.Scanner
+   - Detects file truncation by checking if file ends with newline
+   - Uses pending-line pattern (matching ergo reference) for truncation tolerance
+   - Unmarshals each line into map[string]json.RawMessage to capture all fields
+   - Maps 23 known beads fields to Issue struct fields
+   - Preserves unknown fields in Issue.Metadata map
+   - Parses nested Dependency array with full struct mapping
+   - Returns all successfully parsed issues; skips truncated final line without error
+
+2. Known Fields Mapped (23 total):
+   id, title, description, design, acceptance_criteria, notes, spec_id,
+   status, priority, issue_type, assignee, owner, created_by, created_at,
+   updated_at, closed_at, close_reason, defer_until, labels, dependencies,
+   pinned, ephemeral
+
+3. Unknown Fields Handling:
+   - All unknown fields preserved in Issue.Metadata as json.RawMessage
+   - Enables round-trip export without data loss
+   - Tested with: hook_bead, mol_type, agent_state
+
+4. Test Fixture (beads_sample.jsonl):
+   - bd-aaa1: Open task, priority 1, no deps
+   - bd-aaa2: Closed task, priority 2, with close_reason
+   - bd-aaa3: Open task with dependency (blocks bd-aaa1)
+   - bd-aaa4: Deferred task with defer_until
+   - bd-aaa5: Task with unknown beads fields (hook_bead, mol_type, agent_state)
+
+5. Test Coverage (11 tests):
+   ✓ TestBeadsParserKnownFields - Validates known field mapping
+   ✓ TestBeadsParserUnknownFields - Validates Metadata preservation
+   ✓ TestBeadsParserDependencies - Validates dependency parsing
+   ✓ TestBeadsParserTruncated - Validates truncation tolerance
+   ✓ TestBeadsParserEmpty - Validates empty input handling
+   ✓ TestBeadsParserEmptyLines - Validates empty line skipping
+   ✓ TestBeadsParserInvalidJSON - Validates error on invalid JSON
+   ✓ TestBeadsParserTimestamps - Validates timestamp parsing
+   ✓ TestBeadsParserLabels - Validates labels array parsing
+   ✓ TestBeadsParserDeferUntil - Validates defer_until parsing
+   ✓ TestBeadsParserMultipleUnknownFields - Validates multiple unknown fields
+
+TEST RESULTS:
+=============
+$ go test ./internal/tl/ -run TestBeadsParser -count=1 -v
+
+=== RUN   TestBeadsParserKnownFields
+--- PASS: TestBeadsParserKnownFields (0.00s)
+=== RUN   TestBeadsParserUnknownFields
+--- PASS: TestBeadsParserUnknownFields (0.00s)
+=== RUN   TestBeadsParserDependencies
+--- PASS: TestBeadsParserDependencies (0.00s)
+=== RUN   TestBeadsParserTruncated
+--- PASS: TestBeadsParserTruncated (0.00s)
+=== RUN   TestBeadsParserEmpty
+--- PASS: TestBeadsParserEmpty (0.00s)
+=== RUN   TestBeadsParserEmptyLines
+--- PASS: TestBeadsParserEmptyLines (0.00s)
+=== RUN   TestBeadsParserInvalidJSON
+--- PASS: TestBeadsParserInvalidJSON (0.00s)
+=== RUN   TestBeadsParserTimestamps
+--- PASS: TestBeadsParserTimestamps (0.00s)
+=== RUN   TestBeadsParserLabels
+--- PASS: TestBeadsParserLabels (0.00s)
+=== RUN   TestBeadsParserDeferUntil
+--- PASS: TestBeadsParserDeferUntil (0.00s)
+=== RUN   TestBeadsParserMultipleUnknownFields
+--- PASS: TestBeadsParserMultipleUnknownFields (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.008s
+
+LINTER RESULTS:
+===============
+$ go vet ./...
+(no errors)
+
+DESIGN NOTES:
+=============
+1. Truncation Tolerance:
+   - Implements pending-line pattern from ergo reference (docs/references/ergo/internal/ergo/storage.go:149-176)
+   - Detects file truncation by checking final byte for newline
+   - Silently skips incomplete final line if file doesn't end with newline
+   - Returns error for parse failures only if file properly terminated
+
+2. Unknown Field Preservation:
+   - Uses json.RawMessage to preserve exact JSON representation
+   - Enables lossless round-trip export
+   - Supports beads extension fields (hook_bead, mol_type, agent_state, etc.)
+
+3. Error Handling:
+   - Line-specific error messages for debugging
+   - Distinguishes between truncation (no error) and parse failure (error)
+   - Validates all known field types during unmarshal
+
+4. Code Quality:
+   - Follows project naming conventions (no implementation details in names)
+   - File headers with ABOUTME comments per project standards
+   - Comprehensive test coverage with testify assertions
+   - No external dependencies beyond stdlib + testify (already in go.mod)
+
+INTEGRATION NOTES:
+==================
+- Parser is ready for use in tl import pipeline
+- Depends on Issue struct from model.go (already present)
+- Depends on Dependency struct from model.go (already present)
+- No compilation errors or warnings
+- Ready for Wave 2 integration with import orchestration
+
+STATUS: COMPLETE ✓

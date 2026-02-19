@@ -1,0 +1,435 @@
+=== RUN   TestDependencyTypeAffectsReadyWork
+=== RUN   TestDependencyTypeAffectsReadyWork/blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/parent-child
+=== RUN   TestDependencyTypeAffectsReadyWork/conditional-blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/waits-for
+=== RUN   TestDependencyTypeAffectsReadyWork/related
+=== RUN   TestDependencyTypeAffectsReadyWork/discovered-from
+--- PASS: TestDependencyTypeAffectsReadyWork (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/parent-child (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/conditional-blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/waits-for (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/related (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/discovered-from (0.00s)
+=== RUN   TestDependencyTypeUnknownAccepted
+--- PASS: TestDependencyTypeUnknownAccepted (0.00s)
+=== RUN   TestInitDir
+--- PASS: TestInitDir (0.00s)
+=== RUN   TestInitDirAlreadyExists
+--- PASS: TestInitDirAlreadyExists (0.00s)
+=== RUN   TestResolveTLDir
+--- PASS: TestResolveTLDir (0.00s)
+=== RUN   TestLoadGraphEmpty
+--- PASS: TestLoadGraphEmpty (0.00s)
+=== RUN   TestCreateAndReplay
+--- PASS: TestCreateAndReplay (0.00s)
+=== RUN   TestMultiEventReplay
+--- PASS: TestMultiEventReplay (0.00s)
+=== RUN   TestDepAddReplay
+--- PASS: TestDepAddReplay (0.00s)
+=== RUN   TestGenerateID
+--- PASS: TestGenerateID (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.012s
+=== RUN   TestBeadsParserKnownFields
+--- PASS: TestBeadsParserKnownFields (0.00s)
+=== RUN   TestBeadsParserUnknownFields
+--- PASS: TestBeadsParserUnknownFields (0.00s)
+=== RUN   TestBeadsParserDependencies
+--- PASS: TestBeadsParserDependencies (0.00s)
+=== RUN   TestBeadsParserTruncated
+--- PASS: TestBeadsParserTruncated (0.00s)
+=== RUN   TestBeadsParserEmpty
+--- PASS: TestBeadsParserEmpty (0.00s)
+=== RUN   TestBeadsParserEmptyLines
+--- PASS: TestBeadsParserEmptyLines (0.00s)
+=== RUN   TestBeadsParserInvalidJSON
+--- PASS: TestBeadsParserInvalidJSON (0.00s)
+=== RUN   TestBeadsParserTimestamps
+--- PASS: TestBeadsParserTimestamps (0.00s)
+=== RUN   TestBeadsParserLabels
+--- PASS: TestBeadsParserLabels (0.00s)
+=== RUN   TestBeadsParserDeferUntil
+--- PASS: TestBeadsParserDeferUntil (0.00s)
+=== RUN   TestBeadsParserMultipleUnknownFields
+--- PASS: TestBeadsParserMultipleUnknownFields (0.00s)
+=== RUN   TestEventSerialization
+--- PASS: TestEventSerialization (0.01s)
+=== RUN   TestEventRoundTrip
+=== RUN   TestEventRoundTrip/create_event
+=== RUN   TestEventRoundTrip/update_event
+=== RUN   TestEventRoundTrip/close_event
+=== RUN   TestEventRoundTrip/reopen_event
+=== RUN   TestEventRoundTrip/dep_add_event
+=== RUN   TestEventRoundTrip/dep_remove_event
+=== RUN   TestEventRoundTrip/claim_event
+--- PASS: TestEventRoundTrip (0.08s)
+    --- PASS: TestEventRoundTrip/create_event (0.01s)
+    --- PASS: TestEventRoundTrip/update_event (0.01s)
+    --- PASS: TestEventRoundTrip/close_event (0.01s)
+    --- PASS: TestEventRoundTrip/reopen_event (0.01s)
+    --- PASS: TestEventRoundTrip/dep_add_event (0.01s)
+    --- PASS: TestEventRoundTrip/dep_remove_event (0.01s)
+    --- PASS: TestEventRoundTrip/claim_event (0.01s)
+=== RUN   TestActorFromEnv
+--- PASS: TestActorFromEnv (0.01s)
+=== RUN   TestEventTimestampUTC
+--- PASS: TestEventTimestampUTC (0.01s)
+=== RUN   TestEventDataMarshaling
+--- PASS: TestEventDataMarshaling (0.01s)
+=== RUN   TestEventJSONFormat
+--- PASS: TestEventJSONFormat (0.01s)
+=== RUN   TestEventAppendFormat
+--- PASS: TestEventAppendFormat (0.02s)
+=== RUN   TestUpdateEventDataFields
+--- PASS: TestUpdateEventDataFields (0.01s)
+=== RUN   TestHashDeterministic
+--- PASS: TestHashDeterministic (0.00s)
+=== RUN   TestHashDifferentContent
+--- PASS: TestHashDifferentContent (0.00s)
+=== RUN   TestHashNullSeparator
+--- PASS: TestHashNullSeparator (0.00s)
+=== RUN   TestHashPriorityZero
+--- PASS: TestHashPriorityZero (0.00s)
+=== RUN   TestHashPinnedFlag
+--- PASS: TestHashPinnedFlag (0.00s)
+=== RUN   TestHashMetadata
+--- PASS: TestHashMetadata (0.00s)
+=== RUN   TestLockAcquireRelease
+--- PASS: TestLockAcquireRelease (0.00s)
+=== RUN   TestLockContention
+--- PASS: TestLockContention (0.10s)
+=== RUN   TestLockCreatesFile
+--- PASS: TestLockCreatesFile (0.00s)
+=== RUN   TestLockFunctionError
+--- PASS: TestLockFunctionError (0.00s)
+=== RUN   TestStatusIsValid
+=== RUN   TestStatusIsValid/open
+=== RUN   TestStatusIsValid/in_progress
+=== RUN   TestStatusIsValid/blocked
+=== RUN   TestStatusIsValid/deferred
+=== RUN   TestStatusIsValid/closed
+=== RUN   TestStatusIsValid/pinned
+=== RUN   TestStatusIsValid/hooked
+=== RUN   TestStatusIsValid/unknown
+=== RUN   TestStatusIsValid/custom_workflow
+--- PASS: TestStatusIsValid (0.00s)
+    --- PASS: TestStatusIsValid/open (0.00s)
+    --- PASS: TestStatusIsValid/in_progress (0.00s)
+    --- PASS: TestStatusIsValid/blocked (0.00s)
+    --- PASS: TestStatusIsValid/deferred (0.00s)
+    --- PASS: TestStatusIsValid/closed (0.00s)
+    --- PASS: TestStatusIsValid/pinned (0.00s)
+    --- PASS: TestStatusIsValid/hooked (0.00s)
+    --- PASS: TestStatusIsValid/unknown (0.00s)
+    --- PASS: TestStatusIsValid/custom_workflow (0.00s)
+=== RUN   TestStatusRoundTrip
+--- PASS: TestStatusRoundTrip (0.00s)
+=== RUN   TestPriorityZeroNotOmitted
+--- PASS: TestPriorityZeroNotOmitted (0.00s)
+=== RUN   TestDependencyTypeAffectsReadyWork
+=== RUN   TestDependencyTypeAffectsReadyWork/blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/parent-child
+=== RUN   TestDependencyTypeAffectsReadyWork/conditional-blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/waits-for
+=== RUN   TestDependencyTypeAffectsReadyWork/related
+=== RUN   TestDependencyTypeAffectsReadyWork/discovered-from
+--- PASS: TestDependencyTypeAffectsReadyWork (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/parent-child (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/conditional-blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/waits-for (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/related (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/discovered-from (0.00s)
+=== RUN   TestDependencyTypeUnknownAccepted
+--- PASS: TestDependencyTypeUnknownAccepted (0.00s)
+=== RUN   TestValidateTransitionValid
+=== RUN   TestValidateTransitionValid/open→in_progress
+=== RUN   TestValidateTransitionValid/open→blocked
+=== RUN   TestValidateTransitionValid/open→deferred
+=== RUN   TestValidateTransitionValid/open→closed
+=== RUN   TestValidateTransitionValid/in_progress→open
+=== RUN   TestValidateTransitionValid/in_progress→blocked
+=== RUN   TestValidateTransitionValid/in_progress→closed
+=== RUN   TestValidateTransitionValid/blocked→open
+=== RUN   TestValidateTransitionValid/blocked→in_progress
+=== RUN   TestValidateTransitionValid/blocked→closed
+=== RUN   TestValidateTransitionValid/deferred→open
+=== RUN   TestValidateTransitionValid/closed→open
+=== RUN   TestValidateTransitionValid/open→open
+=== RUN   TestValidateTransitionValid/closed→closed
+--- PASS: TestValidateTransitionValid (0.00s)
+    --- PASS: TestValidateTransitionValid/open→in_progress (0.00s)
+    --- PASS: TestValidateTransitionValid/open→blocked (0.00s)
+    --- PASS: TestValidateTransitionValid/open→deferred (0.00s)
+    --- PASS: TestValidateTransitionValid/open→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→open (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→blocked (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→open (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→in_progress (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/deferred→open (0.00s)
+    --- PASS: TestValidateTransitionValid/closed→open (0.00s)
+    --- PASS: TestValidateTransitionValid/open→open (0.00s)
+    --- PASS: TestValidateTransitionValid/closed→closed (0.00s)
+=== RUN   TestValidateTransitionInvalid
+=== RUN   TestValidateTransitionInvalid/closed→in_progress
+=== RUN   TestValidateTransitionInvalid/closed→blocked
+=== RUN   TestValidateTransitionInvalid/closed→deferred
+=== RUN   TestValidateTransitionInvalid/deferred→in_progress
+=== RUN   TestValidateTransitionInvalid/deferred→blocked
+=== RUN   TestValidateTransitionInvalid/deferred→closed
+=== RUN   TestValidateTransitionInvalid/pinned→open
+=== RUN   TestValidateTransitionInvalid/pinned→in_progress
+=== RUN   TestValidateTransitionInvalid/hooked→open
+--- PASS: TestValidateTransitionInvalid (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→blocked (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→deferred (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→blocked (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→closed (0.00s)
+    --- PASS: TestValidateTransitionInvalid/pinned→open (0.00s)
+    --- PASS: TestValidateTransitionInvalid/pinned→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/hooked→open (0.00s)
+=== RUN   TestValidateTransitionUnknownStatus
+--- PASS: TestValidateTransitionUnknownStatus (0.00s)
+=== RUN   TestInitDir
+--- PASS: TestInitDir (0.00s)
+=== RUN   TestInitDirAlreadyExists
+--- PASS: TestInitDirAlreadyExists (0.00s)
+=== RUN   TestResolveTLDir
+--- PASS: TestResolveTLDir (0.00s)
+=== RUN   TestLoadGraphEmpty
+--- PASS: TestLoadGraphEmpty (0.00s)
+=== RUN   TestCreateAndReplay
+--- PASS: TestCreateAndReplay (0.00s)
+=== RUN   TestMultiEventReplay
+--- PASS: TestMultiEventReplay (0.00s)
+=== RUN   TestDepAddReplay
+--- PASS: TestDepAddReplay (0.00s)
+=== RUN   TestGenerateID
+--- PASS: TestGenerateID (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.276s
++ go test ./internal/tl/ -count=1 -v -run 'TestInit|TestResolve|TestLoad|TestCreate|TestMulti|TestDep|TestGenerate'
+=== RUN   TestDependencyTypeAffectsReadyWork
+=== RUN   TestDependencyTypeAffectsReadyWork/blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/parent-child
+=== RUN   TestDependencyTypeAffectsReadyWork/conditional-blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/waits-for
+=== RUN   TestDependencyTypeAffectsReadyWork/related
+=== RUN   TestDependencyTypeAffectsReadyWork/discovered-from
+--- PASS: TestDependencyTypeAffectsReadyWork (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/parent-child (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/conditional-blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/waits-for (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/related (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/discovered-from (0.00s)
+=== RUN   TestDependencyTypeUnknownAccepted
+--- PASS: TestDependencyTypeUnknownAccepted (0.00s)
+=== RUN   TestInitDir
+--- PASS: TestInitDir (0.00s)
+=== RUN   TestInitDirAlreadyExists
+--- PASS: TestInitDirAlreadyExists (0.00s)
+=== RUN   TestResolveTLDir
+--- PASS: TestResolveTLDir (0.00s)
+=== RUN   TestLoadGraphEmpty
+--- PASS: TestLoadGraphEmpty (0.00s)
+=== RUN   TestCreateAndReplay
+--- PASS: TestCreateAndReplay (0.00s)
+=== RUN   TestMultiEventReplay
+--- PASS: TestMultiEventReplay (0.00s)
+=== RUN   TestDepAddReplay
+--- PASS: TestDepAddReplay (0.00s)
+=== RUN   TestGenerateID
+--- PASS: TestGenerateID (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.012s
++ go build ./...
++ go vet ./...
+=== RUN   TestBeadsParserKnownFields
+--- PASS: TestBeadsParserKnownFields (0.00s)
+=== RUN   TestBeadsParserUnknownFields
+--- PASS: TestBeadsParserUnknownFields (0.00s)
+=== RUN   TestBeadsParserDependencies
+--- PASS: TestBeadsParserDependencies (0.00s)
+=== RUN   TestBeadsParserTruncated
+--- PASS: TestBeadsParserTruncated (0.00s)
+=== RUN   TestBeadsParserEmpty
+--- PASS: TestBeadsParserEmpty (0.00s)
+=== RUN   TestBeadsParserEmptyLines
+--- PASS: TestBeadsParserEmptyLines (0.00s)
+=== RUN   TestBeadsParserInvalidJSON
+--- PASS: TestBeadsParserInvalidJSON (0.00s)
+=== RUN   TestBeadsParserTimestamps
+--- PASS: TestBeadsParserTimestamps (0.00s)
+=== RUN   TestBeadsParserLabels
+--- PASS: TestBeadsParserLabels (0.00s)
+=== RUN   TestBeadsParserDeferUntil
+--- PASS: TestBeadsParserDeferUntil (0.00s)
+=== RUN   TestBeadsParserMultipleUnknownFields
+--- PASS: TestBeadsParserMultipleUnknownFields (0.00s)
+=== RUN   TestEventSerialization
+--- PASS: TestEventSerialization (0.01s)
+=== RUN   TestEventRoundTrip
+=== RUN   TestEventRoundTrip/create_event
+=== RUN   TestEventRoundTrip/update_event
+=== RUN   TestEventRoundTrip/close_event
+=== RUN   TestEventRoundTrip/reopen_event
+=== RUN   TestEventRoundTrip/dep_add_event
+=== RUN   TestEventRoundTrip/dep_remove_event
+=== RUN   TestEventRoundTrip/claim_event
+--- PASS: TestEventRoundTrip (0.08s)
+    --- PASS: TestEventRoundTrip/create_event (0.01s)
+    --- PASS: TestEventRoundTrip/update_event (0.01s)
+    --- PASS: TestEventRoundTrip/close_event (0.01s)
+    --- PASS: TestEventRoundTrip/reopen_event (0.01s)
+    --- PASS: TestEventRoundTrip/dep_add_event (0.01s)
+    --- PASS: TestEventRoundTrip/dep_remove_event (0.01s)
+    --- PASS: TestEventRoundTrip/claim_event (0.01s)
+=== RUN   TestActorFromEnv
+--- PASS: TestActorFromEnv (0.01s)
+=== RUN   TestEventTimestampUTC
+--- PASS: TestEventTimestampUTC (0.01s)
+=== RUN   TestEventDataMarshaling
+--- PASS: TestEventDataMarshaling (0.01s)
+=== RUN   TestEventJSONFormat
+--- PASS: TestEventJSONFormat (0.01s)
+=== RUN   TestEventAppendFormat
+--- PASS: TestEventAppendFormat (0.02s)
+=== RUN   TestUpdateEventDataFields
+--- PASS: TestUpdateEventDataFields (0.01s)
+=== RUN   TestHashDeterministic
+--- PASS: TestHashDeterministic (0.00s)
+=== RUN   TestHashDifferentContent
+--- PASS: TestHashDifferentContent (0.00s)
+=== RUN   TestHashNullSeparator
+--- PASS: TestHashNullSeparator (0.00s)
+=== RUN   TestHashPriorityZero
+--- PASS: TestHashPriorityZero (0.00s)
+=== RUN   TestHashPinnedFlag
+--- PASS: TestHashPinnedFlag (0.00s)
+=== RUN   TestHashMetadata
+--- PASS: TestHashMetadata (0.00s)
+=== RUN   TestLockAcquireRelease
+--- PASS: TestLockAcquireRelease (0.00s)
+=== RUN   TestLockContention
+--- PASS: TestLockContention (0.10s)
+=== RUN   TestLockCreatesFile
+--- PASS: TestLockCreatesFile (0.00s)
+=== RUN   TestLockFunctionError
+--- PASS: TestLockFunctionError (0.00s)
+=== RUN   TestStatusIsValid
+=== RUN   TestStatusIsValid/open
+=== RUN   TestStatusIsValid/in_progress
+=== RUN   TestStatusIsValid/blocked
+=== RUN   TestStatusIsValid/deferred
+=== RUN   TestStatusIsValid/closed
+=== RUN   TestStatusIsValid/pinned
+=== RUN   TestStatusIsValid/hooked
+=== RUN   TestStatusIsValid/unknown
+=== RUN   TestStatusIsValid/custom_workflow
+--- PASS: TestStatusIsValid (0.00s)
+    --- PASS: TestStatusIsValid/open (0.00s)
+    --- PASS: TestStatusIsValid/in_progress (0.00s)
+    --- PASS: TestStatusIsValid/blocked (0.00s)
+    --- PASS: TestStatusIsValid/deferred (0.00s)
+    --- PASS: TestStatusIsValid/closed (0.00s)
+    --- PASS: TestStatusIsValid/pinned (0.00s)
+    --- PASS: TestStatusIsValid/hooked (0.00s)
+    --- PASS: TestStatusIsValid/unknown (0.00s)
+    --- PASS: TestStatusIsValid/custom_workflow (0.00s)
+=== RUN   TestStatusRoundTrip
+--- PASS: TestStatusRoundTrip (0.00s)
+=== RUN   TestPriorityZeroNotOmitted
+--- PASS: TestPriorityZeroNotOmitted (0.00s)
+=== RUN   TestDependencyTypeAffectsReadyWork
+=== RUN   TestDependencyTypeAffectsReadyWork/blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/parent-child
+=== RUN   TestDependencyTypeAffectsReadyWork/conditional-blocks
+=== RUN   TestDependencyTypeAffectsReadyWork/waits-for
+=== RUN   TestDependencyTypeAffectsReadyWork/related
+=== RUN   TestDependencyTypeAffectsReadyWork/discovered-from
+--- PASS: TestDependencyTypeAffectsReadyWork (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/parent-child (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/conditional-blocks (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/waits-for (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/related (0.00s)
+    --- PASS: TestDependencyTypeAffectsReadyWork/discovered-from (0.00s)
+=== RUN   TestDependencyTypeUnknownAccepted
+--- PASS: TestDependencyTypeUnknownAccepted (0.00s)
+=== RUN   TestValidateTransitionValid
+=== RUN   TestValidateTransitionValid/open→in_progress
+=== RUN   TestValidateTransitionValid/open→blocked
+=== RUN   TestValidateTransitionValid/open→deferred
+=== RUN   TestValidateTransitionValid/open→closed
+=== RUN   TestValidateTransitionValid/in_progress→open
+=== RUN   TestValidateTransitionValid/in_progress→blocked
+=== RUN   TestValidateTransitionValid/in_progress→closed
+=== RUN   TestValidateTransitionValid/blocked→open
+=== RUN   TestValidateTransitionValid/blocked→in_progress
+=== RUN   TestValidateTransitionValid/blocked→closed
+=== RUN   TestValidateTransitionValid/deferred→open
+=== RUN   TestValidateTransitionValid/closed→open
+=== RUN   TestValidateTransitionValid/open→open
+=== RUN   TestValidateTransitionValid/closed→closed
+--- PASS: TestValidateTransitionValid (0.00s)
+    --- PASS: TestValidateTransitionValid/open→in_progress (0.00s)
+    --- PASS: TestValidateTransitionValid/open→blocked (0.00s)
+    --- PASS: TestValidateTransitionValid/open→deferred (0.00s)
+    --- PASS: TestValidateTransitionValid/open→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→open (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→blocked (0.00s)
+    --- PASS: TestValidateTransitionValid/in_progress→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→open (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→in_progress (0.00s)
+    --- PASS: TestValidateTransitionValid/blocked→closed (0.00s)
+    --- PASS: TestValidateTransitionValid/deferred→open (0.00s)
+    --- PASS: TestValidateTransitionValid/closed→open (0.00s)
+    --- PASS: TestValidateTransitionValid/open→open (0.00s)
+    --- PASS: TestValidateTransitionValid/closed→closed (0.00s)
+=== RUN   TestValidateTransitionInvalid
+=== RUN   TestValidateTransitionInvalid/closed→in_progress
+=== RUN   TestValidateTransitionInvalid/closed→blocked
+=== RUN   TestValidateTransitionInvalid/closed→deferred
+=== RUN   TestValidateTransitionInvalid/deferred→in_progress
+=== RUN   TestValidateTransitionInvalid/deferred→blocked
+=== RUN   TestValidateTransitionInvalid/deferred→closed
+=== RUN   TestValidateTransitionInvalid/pinned→open
+=== RUN   TestValidateTransitionInvalid/pinned→in_progress
+=== RUN   TestValidateTransitionInvalid/hooked→open
+--- PASS: TestValidateTransitionInvalid (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→blocked (0.00s)
+    --- PASS: TestValidateTransitionInvalid/closed→deferred (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→blocked (0.00s)
+    --- PASS: TestValidateTransitionInvalid/deferred→closed (0.00s)
+    --- PASS: TestValidateTransitionInvalid/pinned→open (0.00s)
+    --- PASS: TestValidateTransitionInvalid/pinned→in_progress (0.00s)
+    --- PASS: TestValidateTransitionInvalid/hooked→open (0.00s)
+=== RUN   TestValidateTransitionUnknownStatus
+--- PASS: TestValidateTransitionUnknownStatus (0.00s)
+=== RUN   TestInitDir
+--- PASS: TestInitDir (0.00s)
+=== RUN   TestInitDirAlreadyExists
+--- PASS: TestInitDirAlreadyExists (0.00s)
+=== RUN   TestResolveTLDir
+--- PASS: TestResolveTLDir (0.00s)
+=== RUN   TestLoadGraphEmpty
+--- PASS: TestLoadGraphEmpty (0.00s)
+=== RUN   TestCreateAndReplay
+--- PASS: TestCreateAndReplay (0.00s)
+=== RUN   TestMultiEventReplay
+--- PASS: TestMultiEventReplay (0.00s)
+=== RUN   TestDepAddReplay
+--- PASS: TestDepAddReplay (0.00s)
+=== RUN   TestGenerateID
+--- PASS: TestGenerateID (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.279s

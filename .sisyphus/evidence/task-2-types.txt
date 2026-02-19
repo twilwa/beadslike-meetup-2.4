@@ -1,0 +1,83 @@
+TASK 2: Core Domain Types for tl CLI
+=====================================
+
+DELIVERABLES COMPLETED:
+✓ /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/model.go
+✓ /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/model_test.go
+✓ Fixed /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/hash.go for Metadata field
+
+TYPES IMPLEMENTED:
+✓ Status (string type with 7 constants: open, in_progress, blocked, deferred, closed, pinned, hooked)
+✓ Status.IsValid() method - validates known statuses only
+✓ DependencyType (string type with 6 constants: blocks, parent-child, conditional-blocks, waits-for, related, discovered-from)
+✓ DependencyType.AffectsReadyWork() method - returns true for blocking types only
+✓ IssueType (string type with 6 constants: bug, feature, task, epic, chore, decision)
+✓ Priority (plain int, 0=P0/critical, 4=Backlog)
+✓ Issue struct with all required fields and JSON tags matching beads spec
+✓ Dependency struct with issue_id, depends_on_id, type, created_at, created_by, metadata
+✓ Graph struct with Tasks, Deps, RDeps maps for in-memory state
+✓ validateTransition() function implementing state machine with valid transitions
+✓ Sentinel error constants: ErrNoTLDir, ErrLockBusy, ErrNotFound, ErrCycle
+
+STATE MACHINE VALIDATION:
+✓ open → in_progress, blocked, deferred, closed
+✓ in_progress → open, blocked, closed
+✓ blocked → open, in_progress, closed
+✓ deferred → open
+✓ closed → open (reopen only)
+✓ pinned → (no transitions)
+✓ hooked → (no transitions)
+✓ Same status → nil (no-op valid)
+✓ Unknown status → error
+
+TEST RESULTS:
+✓ TestStatusIsValid: 10 subtests PASS
+  - Validates all 7 built-in statuses return true
+  - Validates unknown statuses return false
+✓ TestStatusRoundTrip: PASS
+  - Unknown statuses marshal/unmarshal correctly
+✓ TestPriorityZeroNotOmitted: PASS
+  - Priority: 0 included in JSON (no omitempty)
+✓ TestDependencyTypeAffectsReadyWork: 6 subtests PASS
+  - blocks, parent-child, conditional-blocks, waits-for = true
+  - related, discovered-from = false
+✓ TestDependencyTypeUnknownAccepted: PASS
+  - Custom dependency types accepted and round-trip
+✓ TestValidateTransitionValid: 15 subtests PASS
+  - All valid transitions pass
+  - No-op transitions pass
+✓ TestValidateTransitionInvalid: 9 subtests PASS
+  - All invalid transitions fail with error
+✓ TestValidateTransitionUnknownStatus: PASS
+  - Unknown status returns error
+
+QUALITY GATES:
+✓ go test ./internal/tl/ -run "TestStatus|TestDependencyType|TestPriority|TestValidateTransition" -count=1 -v
+  Result: PASS (all 41 subtests)
+✓ go vet ./...
+  Result: PASS (no errors)
+✓ go mod tidy
+  Result: PASS (dependencies resolved)
+
+IMPLEMENTATION NOTES:
+- Unknown Status and DependencyType values are accepted and round-trip safely via JSON
+- No panic on unknown values - they are preserved as-is
+- Priority field has NO omitempty tag to ensure 0 is serialized
+- Metadata field is map[string]json.RawMessage for unknown field passthrough
+- State machine validation prevents invalid workflow transitions
+- All JSON tags match beads specification exactly
+- File headers include ABOUTME comments for greppability
+- Tests use testify/assert for clear, readable assertions
+- Hash function updated to handle Metadata as map[string]json.RawMessage
+
+DEPENDENCIES ADDED:
+- github.com/stretchr/testify v1.11.1 (for testing)
+- github.com/davecgh/go-spew v1.1.1 (transitive)
+- gopkg.in/yaml.v3 (transitive)
+
+FILES MODIFIED:
+- /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/hash.go
+  - Added json import
+  - Fixed Metadata field handling (map[string]json.RawMessage)
+
+TASK COMPLETE: All requirements met, all tests passing, go vet clean.

@@ -1,0 +1,28 @@
+=== RUN   TestCloseTask
+--- PASS: TestCloseTask (0.01s)
+=== RUN   TestCloseNotFound
+--- PASS: TestCloseNotFound (0.00s)
+=== RUN   TestCloseAlreadyClosed
+--- PASS: TestCloseAlreadyClosed (0.01s)
+=== RUN   TestReopenTask
+--- PASS: TestReopenTask (0.02s)
+=== RUN   TestReopenNotClosed
+--- PASS: TestReopenNotClosed (0.00s)
+=== RUN   TestReopenDeferredInvalid
+--- PASS: TestReopenDeferredInvalid (0.01s)
+=== RUN   TestFullLifecycle
+--- PASS: TestFullLifecycle (0.03s)
+=== RUN   TestUpdateTitle
+--- PASS: TestUpdateTitle (0.01s)
+=== RUN   TestUpdateStatus
+--- PASS: TestUpdateStatus (0.01s)
+=== RUN   TestUpdateInvalidTransition
+--- PASS: TestUpdateInvalidTransition (0.00s)
+=== RUN   TestUpdateMultipleFields
+--- PASS: TestUpdateMultipleFields (0.01s)
+=== RUN   TestUpdateNotFound
+--- PASS: TestUpdateNotFound (0.00s)
+=== RUN   TestUpdateEventDataFields
+--- PASS: TestUpdateEventDataFields (0.01s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.149s

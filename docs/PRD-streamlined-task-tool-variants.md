@@ -60,8 +60,11 @@ The tool MUST support these statuses with identical semantics to beads:
 | `blocked` | NO | NO | YES (transitive) | Set when blocking dep exists |
 | `deferred` | NO | NO | NO | Hidden from `ready` until reactivated |
 | `closed` | NO | NO | NO | Closing clears blocking edges |
-| `tombstone` | NO | NO | NO | Soft-delete; prevents resurrection on import |
 | `pinned` | NO | NO | NO | Persistent context marker, not work item |
+| `hooked` | NO | NO | NO | Agent-attached work item (beads agent-as-bead) |
+
+Soft-delete semantics: closing with `close_reason: "tombstone"` prevents resurrection on import (ergo-style).
+This is NOT a separate status -- it uses `closed` status + close_reason metadata.
 
 Unknown status values from beads MUST round-trip without loss (stored in metadata).
 

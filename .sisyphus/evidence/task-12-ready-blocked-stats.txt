@@ -1,0 +1,28 @@
+Task 12 Evidence: ready/blocked/stats implementation
+Date: 2026-02-18
+
+Command:
+cd /Users/anon/Projects/beadslike-meetup-2.4/tl && go build ./... && go test ./internal/tl/ -count=1 -v -run "TestReady|TestBlocked|TestStats|TestComputeBlocked"
+
+Output:
+=== RUN   TestBlockedShowsBlockingIssueIDsTextAndJSON
+--- PASS: TestBlockedShowsBlockingIssueIDsTextAndJSON (0.00s)
+=== RUN   TestReadySkipsBlockedThenIncludesAfterBlockerClosed
+--- PASS: TestReadySkipsBlockedThenIncludesAfterBlockerClosed (0.00s)
+=== RUN   TestReadyJSONReturnsArray
+--- PASS: TestReadyJSONReturnsArray (0.00s)
+=== RUN   TestStatsCountsBlockedSetAndStatuses
+--- PASS: TestStatsCountsBlockedSetAndStatuses (0.00s)
+=== RUN   TestComputeBlockedSetMarksBlockingDependency
+--- PASS: TestComputeBlockedSetMarksBlockingDependency (0.00s)
+=== RUN   TestComputeBlockedSetParentChildTransitive
+--- PASS: TestComputeBlockedSetParentChildTransitive (0.00s)
+=== RUN   TestReadyExcludesFutureDeferredIssue
+--- PASS: TestReadyExcludesFutureDeferredIssue (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.023s
+
+LSP diagnostics check:
+- lsp_diagnostics reported workspace warning for changed files:
+  "No active builds contain ... consider opening a new workspace folder containing it"
+- Build and test checks above are clean.

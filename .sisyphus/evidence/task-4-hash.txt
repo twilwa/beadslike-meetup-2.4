@@ -1,0 +1,84 @@
+TASK 4: Content Hash Utility for Beads Import Deduplication
+============================================================
+
+OBJECTIVE:
+Create hash.go and hash_test.go in /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/
+Implement ComputeContentHash function for deterministic SHA256 hashing of Issue content.
+
+FILES CREATED:
+1. /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/hash.go
+2. /Users/anon/Projects/beadslike-meetup-2.4/tl/internal/tl/hash_test.go
+
+IMPLEMENTATION DETAILS:
+- Package: tl
+- Function: ComputeContentHash(issue *Issue) string
+- Returns: hex-encoded SHA256 digest
+- Hash fields in order (null-byte separated):
+  1. Title
+  2. Description
+  3. Design
+  4. AcceptanceCriteria
+  5. Notes
+  6. SpecID
+  7. Status (as string)
+  8. Priority (as int)
+  9. IssueType (as string)
+  10. Assignee
+  11. Owner
+  12. CreatedBy
+  13. Pinned flag (writes "pinned" if true)
+  14. Metadata (serialized to JSON)
+
+HELPER STRUCT: hashFieldWriter
+- str(s string): writes string + null byte
+- int(n int): writes formatted int + null byte
+- flag(b bool, label string): writes label if true + null byte
+
+TESTS IMPLEMENTED:
+1. TestHashDeterministic: Same Issue → same hash (determinism)
+2. TestHashDifferentContent: Different Issues → different hashes
+3. TestHashNullSeparator: Null-byte separators prevent concatenation collisions
+4. TestHashPriorityZero: Different priority values → different hashes
+5. TestHashPinnedFlag: Pinned flag affects hash
+6. TestHashMetadata: Different metadata → different hashes
+
+TEST RESULTS:
+=== RUN   TestHashDeterministic
+--- PASS: TestHashDeterministic (0.00s)
+=== RUN   TestHashDifferentContent
+--- PASS: TestHashDifferentContent (0.00s)
+=== RUN   TestHashNullSeparator
+--- PASS: TestHashNullSeparator (0.00s)
+=== RUN   TestHashPriorityZero
+--- PASS: TestHashPriorityZero (0.00s)
+=== RUN   TestHashPinnedFlag
+--- PASS: TestHashPinnedFlag (0.00s)
+=== RUN   TestHashMetadata
+--- PASS: TestHashMetadata (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.007s
+
+LINTING RESULTS:
+go vet ./... - PASS (no errors)
+
+VERIFICATION CHECKLIST:
+✓ File headers with ABOUTME comments
+✓ Package declaration: package tl
+✓ ComputeContentHash function signature matches spec
+✓ hashFieldWriter helper struct with all required methods
+✓ Hash field order matches beads reference implementation
+✓ Null-byte separator pattern implemented correctly
+✓ Metadata serialized to JSON for hashing
+✓ All 6 test cases pass
+✓ go vet passes with no errors
+✓ Tests use github.com/stretchr/testify/assert
+
+COMPATIBILITY NOTES:
+- Implementation matches beads reference at docs/references/beads/internal/types/types.go
+- Field order is identical for import deduplication compatibility
+- Null-byte separators prevent collision attacks
+- Metadata handling: nil maps hash as empty string, non-nil maps serialize to JSON
+- Issue struct fields referenced: Title, Description, Design, AcceptanceCriteria, Notes, SpecID, Status, Priority, IssueType, Assignee, Owner, CreatedBy, Pinned, Metadata
+
+STATUS: COMPLETE
+All requirements met. Ready for integration with beads import logic.

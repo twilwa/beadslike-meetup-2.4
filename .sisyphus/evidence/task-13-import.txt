@@ -1,0 +1,6 @@
+=== RUN   TestImportFromFixture
+--- PASS: TestImportFromFixture (0.07s)
+=== RUN   TestImportDeduplicatesByContentHash
+--- PASS: TestImportDeduplicatesByContentHash (0.07s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.144s

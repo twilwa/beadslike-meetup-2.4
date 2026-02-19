@@ -1,0 +1,25 @@
+Task 15 - tl claim implementation evidence
+
+Command:
+cd /Users/anon/Projects/beadslike-meetup-2.4/tl && go build ./... && go test ./internal/tl/ -count=1 -v -run "TestClaim"
+
+Output:
+=== RUN   TestClaimCmdArgsRequireSingleID
+--- PASS: TestClaimCmdArgsRequireSingleID (0.00s)
+=== RUN   TestClaimOpenTask
+--- PASS: TestClaimOpenTask (0.01s)
+=== RUN   TestClaimJSONOutput
+--- PASS: TestClaimJSONOutput (0.01s)
+=== RUN   TestClaimNotFound
+--- PASS: TestClaimNotFound (0.00s)
+=== RUN   TestClaimNotOpen
+--- PASS: TestClaimNotOpen (0.00s)
+=== RUN   TestClaimConcurrentOnlyOneSucceeds
+--- PASS: TestClaimConcurrentOnlyOneSucceeds (0.01s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.061s
+
+LSP diagnostics check:
+- cmd_claim.go: warning from language server workspace setup ("No active builds contain ...")
+- cmd_claim_test.go: warning from language server workspace setup ("No active builds contain ...")
+- Compile/test verification above confirms changed files build and execute successfully.

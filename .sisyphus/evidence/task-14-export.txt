@@ -1,0 +1,26 @@
+=== RUN   TestExportBasic
+Exported 3 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportBasic713764221/002/out/issues.jsonl
+--- PASS: TestExportBasic (0.00s)
+=== RUN   TestExportMetadataPromotion
+Exported 3 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportMetadataPromotion307687833/002/export.jsonl
+--- PASS: TestExportMetadataPromotion (0.00s)
+=== RUN   TestExportDependencies
+Exported 3 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportDependencies3157287600/002/deps.jsonl
+--- PASS: TestExportDependencies (0.00s)
+=== RUN   TestExportSortedByID
+Exported 3 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportSortedByID462897911/002/sorted.jsonl
+--- PASS: TestExportSortedByID (0.00s)
+=== RUN   TestExportCreatesParentDirs
+Exported 3 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportCreatesParentDirs1335915643/002/deep/nested/dir/issues.jsonl
+--- PASS: TestExportCreatesParentDirs (0.00s)
+=== RUN   TestExportAtomicWriteNoPartial
+--- PASS: TestExportAtomicWriteNoPartial (0.00s)
+=== RUN   TestExportEmptyGraph
+Exported 0 issues to /var/folders/px/0dyr9zns1jl9gmz_1sxcqyd80000gn/T/TestExportEmptyGraph316047780/002/empty.jsonl
+--- PASS: TestExportEmptyGraph (0.00s)
+=== RUN   TestExportJSONOutput
+--- PASS: TestExportJSONOutput (0.00s)
+=== RUN   TestIssueToBeadsJSON
+--- PASS: TestIssueToBeadsJSON (0.00s)
+PASS
+ok  	github.com/twilwa/tl/internal/tl	0.014s
