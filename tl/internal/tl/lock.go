@@ -1,6 +1,8 @@
 // ABOUTME: File lock manager for write serialization using flock(2).
 // ABOUTME: Provides non-blocking exclusive lock acquisition with fail-fast semantics.
 
+//go:build !windows
+
 package tl
 
 import (

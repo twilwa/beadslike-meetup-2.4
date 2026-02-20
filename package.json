@@ -1,0 +1,28 @@
+{
+  "name": "tl",
+  "version": "0.1.0",
+  "description": "Task management CLI for human+AI delivery teams",
+  "bin": {
+    "tl": "./bin/tl.js"
+  },
+  "files": [
+    "bin/",
+    "binaries/"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "cd tl && GOOS=darwin GOARCH=arm64 go build -o ../binaries/tl-darwin-arm64 ./cmd/tl && GOOS=darwin GOARCH=amd64 go build -o ../binaries/tl-darwin-amd64 ./cmd/tl && GOOS=linux GOARCH=amd64 go build -o ../binaries/tl-linux-amd64 ./cmd/tl && GOOS=linux GOARCH=arm64 go build -o ../binaries/tl-linux-arm64 ./cmd/tl && GOOS=windows GOARCH=amd64 go build -o ../binaries/tl-windows-amd64.exe ./cmd/tl",
+    "prepack": "chmod +x bin/tl.js binaries/tl-darwin-arm64 binaries/tl-darwin-amd64 binaries/tl-linux-amd64 binaries/tl-linux-arm64"
+  },
+  "engines": {
+    "bun": ">=1.0.0",
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "task-management",
+    "ai",
+    "developer-tools"
+  ],
+  "license": "MIT"
+}

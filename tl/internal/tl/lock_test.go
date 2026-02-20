@@ -1,6 +1,8 @@
 // ABOUTME: Tests for file lock manager.
 // ABOUTME: Validates lock acquisition, release, contention, and file creation.
 
+//go:build !windows
+
 package tl
 
 import (
